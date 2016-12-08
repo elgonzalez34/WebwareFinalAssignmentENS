@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Bootstrap libraries-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Quill libraries-->
+    <!-- Main Quill library -->
+    <script src="//cdn.quilljs.com/1.1.6/quill.js"></script>
+    <script src="//cdn.quilljs.com/1.1.6/quill.min.js"></script>
+    <!-- Theme included stylesheets -->
+    <link href="//cdn.quilljs.com/1.1.6/quill.snow.css" rel="stylesheet">
+    <link href="//cdn.quilljs.com/1.1.6/quill.bubble.css" rel="stylesheet">
+    <!-- Core build with no theme, formatting, non-essential modules -->
+    <link href="//cdn.quilljs.com/1.1.6/quill.core.css" rel="stylesheet">
+    <script src="//cdn.quilljs.com/1.1.6/quill.core.js"></script>
+    <!--My css file-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+     -->
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Rokkitt|EB+Garamond" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 id="main-title">My Blog</h1>
+            <p>The go to place for all of your blogging needs</p>
+        </div>
+        <div class="btn-group btn-group-justified">
+            <a href="#" class="btn btn-primary">All</a>
+            <a href="#" class="btn btn-primary">Reviews</a>
+            <a href="#" class="btn btn-primary">Previews</a>
+            <a href="#" class="btn btn-primary">Essays</a>
+        </div>
+        <div id="post1" class="panel panel-default">
+            <div class="panel-heading">Blog Post #1</div>
+            <div class="panel-body">
+                  <div id="form-container" class="container">
+                    <form>
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div class="form-group">
+                                    <label for="display_name">Post Name</label>
+                                    <input class="form-control" name="display_name" type="text" value="Wall-E">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label for="about">About me</label>
+                            <input name="about" type="hidden">
+                            <div id="editor-container">
+                                <p>A robot who has developed sentience, and is the only robot of his kind shown to be still functioning on Earth.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-primary" type="submit">Save Post</button>
+                        </div>
+                    </form>
+                </div>
+                
+
+                <!--
+                <div id="content-container">
+                    <div id="toolbar-container">
+                        <button class="ql-bold" data-toggle="tooltip" data-placement="bottom" title="Bold"></button>
+                        <button class="ql-italic" data-toggle="tooltip" data-placement="bottom" title="Add italic text <cmd+i>"></button>
+                    </div>
+                    <div id="editor-container"></div>
+                </div>
+                -->
+
+            </div>
+        </div>
+    </div>
+    <!--
+<h1>Outline</h1>
+<h2>Team Members</h2>
+<ul id="teamMembersLi">
+<li>Elijah Gonzalez</li>
+<li>Sean Watson</li>
+<li>Nick Wong</li>
+</ul>
+<h2>Summary</h2>
+<p> For our project we will create the infrastructure for a blogging site, which will allow bloggers to create and customize their own blog. When viewing their site, the admin would have certain special permissions. Examples of these would be the ability to make posts, customize the banner above their site, create navigation tabs, add links of interests easily accessible to regular users, change the color scheme, and so on. Regular users would be limited to browsing, navigating, and leaving comments on the posts that they like. Additionally, users would be able to upvote posts that they find interesting, or downvote others. Our web application would store all of these blog posts and comments. Our design would be modular, so that additional features could easily be added to the infrastructure in the future. </p>
+<h2>Facets</h2>
+<ul id = "facetsLi">
+<li><span>Static Web page content and design:</span> User's individual sites</li>
+<li><span>Dynamic Behavior:</span> Javascript so that admins can personalize their sites</li>
+<li><span>Server-side Programming:</span> Storage of the posts, comments and scores</li>
+
+-->
+</body>
+
+</html>
