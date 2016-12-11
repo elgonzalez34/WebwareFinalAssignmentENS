@@ -1,0 +1,27 @@
+TODO
+
+-Add some sort of template that represent a generic blog post
+
+-When submit button is pressed the html from the blog editor box is uploaded into a new Bootstrap panel without the page reloading
+
+-Add a link or button or something that says "create blog post". When you click it a blog editor box pops up
+
+-Add functionality for multiple pages that change by pressing the tabs at the top
+
+-Probably want to make JSON objects instead of writing to a text file for storing the blog posts-> text file was just to lay the groundwork
+
+-Move script code in index.html into scripts.js -> scripts.js already is being served, I just couldn't get it to work with the text editor stuff, probably need to include stuff or something
+
+-Beautify the css
+
+-Maybe more I'm not sure?
+
+
+
+-OPTIONAL-
+
+-Add a button that allows you to change the header image
+
+-Allow users to customize the colors
+
+-Support user names and different accounts, as opposed to being editable by anyone

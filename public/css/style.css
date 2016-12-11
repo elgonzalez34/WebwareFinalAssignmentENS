@@ -22,6 +22,10 @@ body {
   width: 500px;
 }
 
+#editor1{
+    margin: 0 auto;
+
+}
 
 .row {
   margin-top: 15px;

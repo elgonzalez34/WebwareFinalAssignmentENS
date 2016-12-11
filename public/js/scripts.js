@@ -1,46 +1,41 @@
 
-var quill = new Quill('#editor-container', {
-  modules: {
-    toolbar: [
-      ['bold', 'italic'],
-      ['link', 'blockquote', 'code-block', 'image'],
-      [{ list: 'ordered' }, { list: 'bullet' }]
-    ]
-  },
-  placeholder: 'Compose an epic...',
-  theme: 'snow'
-});
+// function populate() {
+//   console.log("here")
+//   console.log("getdata: ", CKEDITOR.instances.my_editor.getData())
 
-var form = document.querySelector('form');
-form.onsubmit = function() {
-  // Populate hidden form on submit
-  var about = document.querySelector('input[name=about]');
-  about.value = JSON.stringify(quill.getContents());
-  
-  console.log("Submitted", $(form).serialize(), $(form).serializeArray());
-  
-  // No back end to actually submit to!
-  alert('Open the console to see the submit data!')
-  return false;
-};
+//   var div = document.getElementById('blogWriting')
+//   console.log(div.value.getData())
 
-/*
-$(document).ready(function() {
-  var quill = new Quill('#editor-container', {
-    modules: {
-      toolbar: '#toolbar-container'
-    },
-    placeholder: 'Compose an epic...',
-    theme: 'snow'
-  });
+//   function reqListener () {
+//     //getMyList()
+//   }
   
-  // Enable all tooltips
-  $('[data-toggle="tooltip"]').tooltip();
+//   var oReq = new XMLHttpRequest();
   
-  // Can control programmatically too
-  $('.ql-italic').mouseover();
-  setTimeout(function() {
-    $('.ql-italic').mouseout();
-  }, 2500);
-});
-*/
+//   // defining behavior for when the response comes back to us
+//   oReq.addEventListener("load", reqListener);
+
+//   //We need to perform the post request that will call the add movie function
+//   oReq.open("POST", "/addBlog", true);
+
+//   //We need to send the new movie to the server
+//   oReq.send('newblog='+div.value)
+
+// }
+
+// function getMyList() {
+
+//   function reqListener () {
+//     var tmplist = this.responseText.split(',');
+//     //buildList( tmplist )
+//   }
+  
+//   var oReq = new XMLHttpRequest();
+  
+//   // defining behavior for when the response comes back to us
+//   oReq.addEventListener("load", reqListener);
+
+//   oReq.open("GET", "/blogs");
+//   oReq.send();
+
+// }
