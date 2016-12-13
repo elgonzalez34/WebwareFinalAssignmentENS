@@ -1,4 +1,13 @@
-
+/*
+var compiled = _.template(
+  "<div class='panel panel-default'>" + 
+    "<div class='panel-heading'><%= heading %></div>" + 
+    "<div class='panel-body'>" + 
+    "<p><%= content %></p>" + 
+  "</div>" + 
+  "</div>"
+);
+*/
 // function populate() {
 //   console.log("here")
 //   console.log("getdata: ", CKEDITOR.instances.my_editor.getData())

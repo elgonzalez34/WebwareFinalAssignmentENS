@@ -5,7 +5,11 @@ var http = require('http'),
     path = require('path'),
     port = 8080;
 
-var blogs = fs.readFileSync('blogs.txt', 'utf8').toString().trim().split("\n");
+var blogs;
+fs.readFile('blogs.json', function(err, data) {
+    if (err) throw err;
+    blogs = JSON.parse(data);
+});
 
 var server = http.createServer(function(req, res) {
     var uri = url.parse(req.url)
@@ -29,9 +33,10 @@ var server = http.createServer(function(req, res) {
         case '/addBlog':
             addBlog(req, res)
             break
-        case '/blogs.txt':
-            sendFile(res, 'blogs.txt')
-            break
+        case '/blogs':
+            //sendFile(res, 'blogs.json', 'application/json');
+            res.end( JSON.stringify(blogs) );
+            break;
         default:
             res.end('404 not found')
     }
@@ -42,6 +47,7 @@ console.log('listening on 8080')
 
 // subroutines
 
+/*
 //This function runs whenever a blog needs to be added to the text file. It adds the new blog to the blog file
 function addBlog(req, res) {
     var body = ''
@@ -57,6 +63,36 @@ function addBlog(req, res) {
             fs.writeFileSync('blogs.txt', blogs.join('\n'));
         }
         res.end();
+    })
+}
+*/
+
+//Here we add the new post to the JSON object
+function addBlog(req, res) {
+    var body = '';
+
+    req.on('data', function(d) {
+        body += d;
+    })
+    req.on('end', function(d) {
+        //var post = qs.parse(body, {delimiter: ';'});
+        var post = body.split('=') // splitting newblog=html=blogtype=heading
+        if (post[1] && post[2]) {
+            console.log("post.newblog", post[1]);
+            console.log("post.blogtype", post[2]);
+            console.log("post.heading", post[3]);
+
+            //The JSON object is created by making the id the textID and the content the body of the post.newpost
+            var text = '{"newblog":' + '"' + post[1] + '"' + ', "blogtype":' + '"' + post[2] + '"' + ',"heading":' + '"' + post[3] + '"}';
+            var obj = JSON.parse(text);
+            //Push the new JSON object onto the list
+            blogs.push(obj);
+            //Write the object list to the JSON file
+            fs.writeFileSync('blogs.json', JSON.stringify(blogs));
+            res.end()
+        } else {
+            res.end(' id or new post not found ')
+        }
     })
 }
 
