@@ -39,6 +39,7 @@
             //These functions are for creating and destroying the editor box
             //TODO This should be moved into scripts.js
             var blogs = [];
+			var lastSortMode = '';
 
             var compiled = _.template(
               "<div class='panel panel-default'>" + 
@@ -87,7 +88,7 @@
                 //If we wanted to trigger something when the request happens, we would do it here
                 function reqListener() {
                     blogs = [];
-                    makeGet("/blogs", "all");
+                    makeGet("/blogs", lastSortMode);
                 }
                 var oReq = new XMLHttpRequest();
                 // defining behavior for when the response comes back to us
@@ -137,6 +138,7 @@
 				  
 				  buildList( sortedBlogs );
 				}
+				lastSortMode = sort;
               }
             }
 
@@ -150,11 +152,6 @@
               
               document.querySelector("#blogs").innerHTML = toAppendString;
             }
-			//function sortPosts( objectArray, typeSort ) {
-			//  for (i = 0
-			//  
-			//  return true;
-			//}
 			
             </script>
             <div id="editor1">
