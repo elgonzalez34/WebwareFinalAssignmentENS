@@ -1,16 +1,22 @@
 TODO
 
 -Add some sort of template that represent a generic blog post
+DONE
 
 -When submit button is pressed the html from the blog editor box is uploaded into a new Bootstrap panel without the page reloading
+DONE N
 
 -Add a link or button or something that says "create blog post". When you click it a blog editor box pops up
+DONE
 
 -Add functionality for multiple pages that change by pressing the tabs at the top
+DONE S if you meant sorting
 
 -Probably want to make JSON objects instead of writing to a text file for storing the blog posts-> text file was just to lay the groundwork
+DONE E
 
 -Move script code in index.html into scripts.js -> scripts.js already is being served, I just couldn't get it to work with the text editor stuff, probably need to include stuff or something
+UPDATE: Can move the functions but breaks if you move the vars, so idk
 
 -Beautify the css
 

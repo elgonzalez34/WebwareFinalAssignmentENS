@@ -27,10 +27,10 @@
             <p>The go-to place for all of your blogging needs</p>
         </div>
         <div class="btn-group btn-group-justified">
-            <a href="#" class="btn btn-primary">All</a>
-            <a href="#" class="btn btn-primary">Reviews</a>
-            <a href="#" class="btn btn-primary">Previews</a>
-            <a href="#" class="btn btn-primary">Essays</a>
+            <a href="#" onclick="return makeGet('/blogs', 'all');"class="btn btn-primary">All</a>
+            <a href="#" onclick="return makeGet('/blogs', 'reviews');" class="btn btn-primary">Reviews</a>
+            <a href="#" onclick="return makeGet('/blogs', 'previews');" class="btn btn-primary">Previews</a>
+            <a href="#" onclick="return makeGet('/blogs', 'essays');" class="btn btn-primary">Essays</a>
         </div>
         <div id="blogs">
         </div>
@@ -49,7 +49,7 @@
               "</div>"
             );
 
-            makeGet("/blogs");
+            makeGet("/blogs","all");
             var editor1, html = '';
 
             //TODO This should be moved into scripts.js
@@ -87,7 +87,7 @@
                 //If we wanted to trigger something when the request happens, we would do it here
                 function reqListener() {
                     blogs = [];
-                    makeGet("/blogs");
+                    makeGet("/blogs", "all");
                 }
                 var oReq = new XMLHttpRequest();
                 // defining behavior for when the response comes back to us
@@ -95,7 +95,7 @@
                 //We need to perform the post request that will call the add blog function
                 oReq.open("POST", "/addBlog", true);
                 //We need to send the new blog post to the server
-                // "newblog=html=typevalue"
+                // "newblog=html=typevalue=heading"
                 oReq.send('newblog=' + html + '=' + typevalue + '=' + headvalue);
 
                 document.getElementById('remove').style.display = 'none';
@@ -107,23 +107,36 @@
                 editor1 = null;
             }
 
-            function makeGet(url) {
+            function makeGet(url, sort) {
               var req = new XMLHttpRequest();
               req.onreadystatechange = function() {
-                handleRes(req);
+				handleRes(req, sort);
               }
 
               req.open('GET', url);
               req.send();
             }
 
-            function handleRes(req) {
+            function handleRes(req, sort) {
               if( req.readyState !== XMLHttpRequest.DONE )
               return;
 
               if(req.status === 200) {
-                var blogs = JSON.parse(req.responseText);
-                buildList( blogs );
+				var blogs = JSON.parse(req.responseText);
+				if (sort === 'all'){
+				  buildList( blogs );
+				}
+				else{
+				  var sortedBlogs =[];
+				  for (i = 0; i < blogs.length; i++) {
+				    if (blogs[i].blogtype == sort) {
+				      sortedBlogs.push(blogs[i]);
+				    }
+				    console.log(blogs[i]);
+				  }
+				  
+				  buildList( sortedBlogs );
+				}
               }
             }
 
@@ -137,6 +150,12 @@
               
               document.querySelector("#blogs").innerHTML += toAppendString;
             }
+			//function sortPosts( objectArray, typeSort ) {
+			//  for (i = 0
+			//  
+			//  return true;
+			//}
+			
             </script>
             <div id="editor1">
             </div>
@@ -149,7 +168,7 @@
             </select>
         </div>
             <p>
-                <input onclick="createEditor();" type="button" value="Create Editor" id="create">
+                <input onclick="createEditor();" type="button" value="Create a Blog Post" id="create">
                 <input onclick="populate();" type="button" value="Submit" id="remove" style="display:none">
             </p>
         </div>
