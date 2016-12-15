@@ -101,7 +101,9 @@
 
                 document.getElementById('remove').style.display = 'none';
                 document.getElementById('bloginfo').style.display = 'none';
+                document.getElementById('blogheading').value = '';
                 document.getElementById('create').style.display = '';
+                html = '';
 
                 // Destroy the editor.
                 editor1.destroy();
@@ -154,8 +156,6 @@
             }
 			
             </script>
-            <div id="editor1">
-            </div>
             <div id="bloginfo" style="display:none">
             Heading: <input id="blogheading" type="text" name="Heading" placeholder="Insert Blog Heading"><br>
             Blog type: <select id="blogtype">
@@ -163,6 +163,8 @@
               <option value="previews">Previews</option>
               <option value="essays">Essays</option>
             </select>
+            <div id="editor1">
+            </div>
         </div>
             <p>
                 <input onclick="createEditor();" type="button" value="Create a Blog Post" id="create">
