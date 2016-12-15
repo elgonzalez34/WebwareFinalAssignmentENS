@@ -1,6 +1,10 @@
 <p>Blog away.asadasdasd</p>
+<<<<<<< HEAD
 <p>Blog away.</p>
 <p>My first blog post!</p>
 <p>Blog away.</p>
 
 <p>Blog away.</p>
+=======
+<p>Blog away.skdjfsdlkjfhsdkljfhdslkfjhdslfkjh</p>
+>>>>>>> 7766fc3474ce0cd36e86cbdf9f4f3dd3e71106db
