@@ -33,9 +33,12 @@ var server = http.createServer(function(req, res) {
         case '/addBlog':
             addBlog(req, res)
             break
+        case '/README.md':
+            sendFile(res, 'README.md')
+            break
         case '/blogs':
             //sendFile(res, 'blogs.json', 'application/json');
-            res.end( JSON.stringify(blogs) );
+            res.end(JSON.stringify(blogs));
             break;
         default:
             res.end('404 not found')
@@ -76,11 +79,13 @@ function addBlog(req, res) {
     })
     req.on('end', function(d) {
         //var post = qs.parse(body, {delimiter: ';'});
-        var post = body.split('=') // splitting newblog=html=blogtype=heading
+        console.log("body pre split" + body)
+        var post = body.split('~') // splitting newblog=html=blogtype=heading
         if (post[1] && post[2]) {
-            console.log("post.newblog", post[1]);
-            console.log("post.blogtype", post[2]);
-            console.log("post.heading", post[3]);
+            console.log("post.newblog: ", post[1]);
+            console.log("post.blogtype: ", post[2]);
+            console.log("post.heading: ", post[3]);
+            //post[1] = post[1].replace("\"", "'");
 
             //The JSON object is created by making the id the textID and the content the body of the post.newpost
             var text = '{"newblog":' + '"' + post[1] + '"' + ', "blogtype":' + '"' + post[2] + '"' + ',"heading":' + '"' + post[3] + '"}';

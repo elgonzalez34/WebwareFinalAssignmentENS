@@ -26,7 +26,7 @@
             <h1 id="main-title">My Blog</h1>
             <p>The go-to place for all of your blogging needs</p>
         </div>
-        <div class="btn-group btn-group-justified">
+        <div id="buttons" class="btn-group btn-group-justified">
             <a href="#" onclick="return makeGet('/blogs', 'all');"class="btn btn-primary">All</a>
             <a href="#" onclick="return makeGet('/blogs', 'reviews');" class="btn btn-primary">Reviews</a>
             <a href="#" onclick="return makeGet('/blogs', 'previews');" class="btn btn-primary">Previews</a>
@@ -88,7 +88,7 @@
                 //If we wanted to trigger something when the request happens, we would do it here
                 function reqListener() {
                     blogs = [];
-                    makeGet("/blogs", lastSortMode);
+                    makeGet("/blogs", lastSortMode);    
                 }
                 var oReq = new XMLHttpRequest();
                 // defining behavior for when the response comes back to us
@@ -97,7 +97,7 @@
                 oReq.open("POST", "/addBlog", true);
                 //We need to send the new blog post to the server
                 // "newblog=html=typevalue=heading"
-                oReq.send('newblog=' + html + '=' + typevalue + '=' + headvalue);
+                oReq.send('newblog~' + html + '~' + typevalue + '~' + headvalue);
 
                 document.getElementById('remove').style.display = 'none';
                 document.getElementById('bloginfo').style.display = 'none';
